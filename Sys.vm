@@ -8,6 +8,7 @@ not // nots argument 0
 push argument 1
 and // this is (not argument 0 and argument 1)
 or // this is (argument 0 and not argument 1) or (not argument 0 and argument 1)
+return
 
   
 //addition
