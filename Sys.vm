@@ -29,7 +29,7 @@ add
 pop argument 0 //updating x
 
 push argument 1
-push conatant 1
+push constant 1
 sub // minusing the shift amount by 1 for the loop
 pop argument 1
 goto LOOP1
@@ -72,46 +72,47 @@ return
 
 function Sys.computeParity 2
 push constant 0
-pop temp 0 // this is parity bit = 0
+pop local 0 // this is parity bit = 0
 
 push constant 0
-pop temp 1 // counter = 0
+pop local 1 // counter = 0
 
 label LOOP2
-push temp 1
+push local 1
 push constant 15
 eq
 if-goto ENDLOOP2 // is counter = 15 then we stop loop
 
 // else we continue
 push constant 1
-push temp 1
+push local 1
 call Sys.shiftLeft 2
 
 push argument 0
 and 
 push constant 0
+eq
 if-goto NOXOR
 //else we continue to xor
 
-push temp 0
+push local 0
 push constant 1
 call Sys.xor 2
-pop temp 0
+pop local 0
 
 label NOXOR
-push temp 1
+push local 1
 push constant 1
 add
-pop temp 1 // updating counter
+pop local 1 // updating counter
 
 goto LOOP2
 
 label ENDLOOP2 //loop condition met so we return val
-push temp 0
+push local 0
 return
 
-function Sys.innit 0 
+function Sys.init 0 
 call Sys.encode 1
 
 label WHILE
