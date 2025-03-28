@@ -1,6 +1,6 @@
 function Sys.xor 0
 push argument 0
-push argument 0
+push argument 1
 not // this nots argument 1
 and // this is (argument 0 and not argument 1)
 push argument 0
